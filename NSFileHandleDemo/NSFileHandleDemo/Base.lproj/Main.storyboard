@@ -65,6 +65,10 @@
                     </view>
                     <connections>
                         <outlet property="freeLable" destination="ZPh-1V-vFo" id="KES-C5-5MH"/>
+<<<<<<< Updated upstream
+=======
+                        <outlet property="goBtn" destination="hYP-EM-AHo" id="L9Z-Cy-l3U"/>
+>>>>>>> Stashed changes
                         <outlet property="indicatorView" destination="uYp-Ct-jVU" id="Lbf-Bp-AYa"/>
                         <outlet property="totalLabel" destination="2kz-Sc-glA" id="2Fc-BG-cCK"/>
                     </connections>
