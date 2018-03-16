@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *freeLable;
 @property (strong, nonatomic) IBOutlet UILabel *totalLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
+@property (strong, nonatomic) IBOutlet UIButton *goBtn;
 
 @end
 
@@ -33,19 +34,13 @@
 {
     _name = [[NSDate date]description];
     _indicatorView.hidden = NO;
-<<<<<<< Updated upstream
-=======
     _goBtn.enabled = NO;
->>>>>>> Stashed changes
     [_indicatorView startAnimating]; dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self writeDataToDoc];
         dispatch_async(dispatch_get_main_queue(),
                        ^{
                            [_indicatorView stopAnimating];
-<<<<<<< Updated upstream
-=======
                             _goBtn.enabled = YES;
->>>>>>> Stashed changes
                        });
     });
     
@@ -53,17 +48,12 @@
 
 - (void)writeDataToDoc
 {
-<<<<<<< Updated upstream
-    long  dataItemLen = 78*1024*1024;
-    long  needWriteLength = [self getDiskFreeSize];
-=======
     long  dataItemLen = 13.2*1024*1024;
     long buffer = 500*1024*1024;//预留空间
     long  needWriteLength = [self getDiskFreeSize]-buffer;
     if (needWriteLength<0) {
         needWriteLength = 0;
     }
->>>>>>> Stashed changes
     long num = needWriteLength/dataItemLen;
     @try {
         NSLog(@"^start....");
@@ -72,16 +62,12 @@
             @autoreleasepool
             {
                 NSLog(@"^%d",i);
-<<<<<<< Updated upstream
-                NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[@"date.txt" stringByAppendingFormat:@"writeDataToDoc_%d",i]];
-=======
                 NSString *filePath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[@"data.pdf" stringByAppendingFormat:@"%@_%d",_name,i]];
->>>>>>> Stashed changes
                 NSFileManager *fm = [NSFileManager defaultManager];
                 [fm createFileAtPath:filePath contents:nil attributes:nil];
                 
                 fileHandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
-                NSString *filepath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"data"];
+                NSString *filepath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"pdf"];
                 NSData *data = [NSData dataWithContentsOfFile:filepath];
                 [fileHandle writeData:data];
                 data = nil;
@@ -97,10 +83,7 @@
         dispatch_async(dispatch_get_main_queue(),
                        ^{
                            [self updateFreeSize];
-<<<<<<< Updated upstream
-=======
                            _goBtn.enabled = YES;
->>>>>>> Stashed changes
                        });
     } @finally {
         
