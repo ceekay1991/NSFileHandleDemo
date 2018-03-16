@@ -65,7 +65,6 @@
                     </view>
                     <connections>
                         <outlet property="freeLable" destination="ZPh-1V-vFo" id="KES-C5-5MH"/>
-                        <outlet property="goBtn" destination="hYP-EM-AHo" id="UZD-C5-8Xn"/>
                         <outlet property="indicatorView" destination="uYp-Ct-jVU" id="Lbf-Bp-AYa"/>
                         <outlet property="totalLabel" destination="2kz-Sc-glA" id="2Fc-BG-cCK"/>
                     </connections>
